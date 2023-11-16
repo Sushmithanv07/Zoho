@@ -1,11 +1,14 @@
 package com.zohocrm.zoho.controller;
 
+import com.zohocrm.zoho.payload.EmailDto;
 import com.zohocrm.zoho.payload.LeadDto;
 import com.zohocrm.zoho.service.LeadService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -30,4 +33,9 @@ public class LeadController {
         return new ResponseEntity<>("Lead is Deleted",HttpStatus.OK);
     }
 
+    @GetMapping
+    public List<LeadDto> getAllLeads(){
+       List<LeadDto> leads = leadService.getAllLeads();
+       return leads;
+    }
 }
