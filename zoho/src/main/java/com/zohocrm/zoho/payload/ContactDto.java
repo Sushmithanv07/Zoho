@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class ContactDto {
 
-    private String lid;
+    private String cid;
     private String firstname;
     private String lastname;
     private String email;

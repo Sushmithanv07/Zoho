@@ -59,6 +59,11 @@ public class LeadServiceImpl implements LeadService {
         return leads.stream().map(lead->mapToDto(lead)).collect(Collectors.toList());
     }
 
+    @Override
+    public List<Lead> getLeadsExcelReports() {
+        return leadRepo.findAll();
+    }
+
     Lead mapToEntity(LeadDto leadDto){
         Lead lead = modelMapper.map(leadDto, Lead.class);
         return lead;

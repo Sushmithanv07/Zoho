@@ -35,13 +35,15 @@ public class ContactServiceImpl implements ContactService {
         if(savedContact.getCid()!=null){
             leadRepo.deleteById(lead.getLid());
         }
-       return mapToDto(savedContact);
-
+        ContactDto dto = mapToDto(savedContact);
+        dto.setCid(savedContact.getCid());
+        return dto;
     }
 
     ContactDto mapToDto(Contact contact){
-      return  modelMapper.map(contact, ContactDto.class);
+        return  modelMapper.map(contact, ContactDto.class);
     }
+
     Contact convertLeadToContact(Lead lead){
         Contact contact = modelMapper.map(lead, Contact.class);
         return contact;
